@@ -67,15 +67,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\InventoryManagement.mdf" />
-    <Content Include="App_Data\InventoryManagement_log.ldf">
-      <DependentUpon>InventoryManagement.mdf</DependentUpon>
+    <Content Include="App_Data\InventoryDatabase.mdf" />
+    <Content Include="App_Data\InventoryDatabase_log.ldf">
+      <DependentUpon>InventoryDatabase.mdf</DependentUpon>
     </Content>
     <Content Include="bootstrap\css\bootstrap_main.css" />
     <Content Include="bootstrap\css\login\login.css" />
     <Content Include="bootstrap\js\bootstrap_main_javascript.js" />
     <Content Include="Global.asax" />
+    <Content Include="Home\home.aspx" />
     <Content Include="Login\login.aspx" />
+    <Content Include="static\Home\shared_navbar.html" />
     <Content Include="static\login_navbar.html" />
     <Content Include="static\Help\TextFile1.txt" />
     <Content Include="Web.config" />
@@ -83,6 +85,13 @@
   <ItemGroup>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Home\home.aspx.cs">
+      <DependentUpon>home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home\home.aspx.designer.cs">
+      <DependentUpon>home.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>

@@ -18,9 +18,11 @@ namespace InventoryManagement
 
         protected void Application_Start(object sender, EventArgs e)
         {
-            SqlConnection connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
-            connection.Open();
-            connection.Close();
+            //SqlConnection connection = new SqlConnection();
+            //connection.Open();
+            //Response.Write("database connected");
+            //connection.Close();
+            //Application["connection"] = connection;
         }
 
         protected void Session_Start(object sender, EventArgs e)

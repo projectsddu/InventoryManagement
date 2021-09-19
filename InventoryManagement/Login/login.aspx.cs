@@ -1,14 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data.SqlTypes;
+using System.Data;
+using System.Web.Configuration;
 
 namespace InventoryManagement.Login
 {
     public partial class login : System.Web.UI.Page
     {
+
+        
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -20,6 +26,40 @@ namespace InventoryManagement.Login
         {
             string name = username.Text;
             string passWord = password.Text;
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = WebConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+            // validation 
+            try
+            {
+                using(connection)
+                {
+                    connection.Open();
+                    string command = "SELECT * FROM AdminUser WHERE Username = '" +
+                        name + "' AND Password = '" + passWord + "'";
+                    SqlCommand cmd = new SqlCommand(command, connection);
+                    SqlDataReader rdr = cmd.ExecuteReader();
+                    int count = 0;
+                    while(rdr.Read()) { 
+                    
+                        count = count + 1;
+                    }
+
+                    if(count == 1)
+                    {
+                        Response.Write("success");
+                    }
+                    else
+                    {
+                        Response.Write("fails");
+                    }
+                    connection.Close();
+                }
+            }
+            catch(Exception err)
+            {
+                Response.Write("Error:" + err.Message);
+            }
+            
 
         }
     }
