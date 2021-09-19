@@ -5,6 +5,11 @@ using System.Web;
 using System.Web.Routing;
 using System.Web.Security;
 using System.Web.SessionState;
+using System.Data.SqlClient;
+using System.Data.OleDb;
+using System.Data.Odbc;
+using System.Data;
+using System.Web.Configuration;
 
 namespace InventoryManagement
 {
@@ -13,7 +18,9 @@ namespace InventoryManagement
 
         protected void Application_Start(object sender, EventArgs e)
         {
-            
+            SqlConnection connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+            connection.Open();
+            connection.Close();
         }
 
         protected void Session_Start(object sender, EventArgs e)

@@ -26,8 +26,8 @@
                     <label for="password" class="form-label">Password</label>
                     <asp:TextBox type="password" ID="password" runat="server" class="form-control" aria-describedby="emailHelp" placeholder="Enter Password"></asp:TextBox>
 
-                </div>
-                <asp:Button ID="loginBtn" class="btn btn-success" runat="server" Text="Login" />
+                    </div>
+                <asp:Button ID="loginBtn" class="btn btn-success" runat="server" Text="Login" OnClick="loginBtn_Click" />
             </div>
 
         </div>

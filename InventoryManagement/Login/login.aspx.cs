@@ -13,5 +13,14 @@ namespace InventoryManagement.Login
         {
 
         }
+
+        
+
+        protected void loginBtn_Click(object sender, EventArgs e)
+        {
+            string name = username.Text;
+            string passWord = password.Text;
+
+        }
     }
 }
