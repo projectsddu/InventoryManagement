@@ -86,8 +86,7 @@ namespace InventoryManagement.Product
             {
                 try
                 {
-                    connection.Open();
-                    string commans
+                    
                 }
                 catch(Exception e)
                 {
