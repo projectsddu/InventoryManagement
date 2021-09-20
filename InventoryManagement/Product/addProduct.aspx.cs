@@ -80,6 +80,26 @@ namespace InventoryManagement.Product
             return -1;
         }
         
+        protected int getMaxSellingPrice(int price)
+        {
+            using(connection)
+            {
+                try
+                {
+                    connection.Open();
+                    string commans
+                }
+                catch(Exception e)
+                {
+                    Response.Write(e.Message);
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+            return -1;
+        }
         protected void submitProduct_Click1(object sender, EventArgs e)
         {
             string productName = TextboxproductName.Text;
@@ -95,8 +115,7 @@ namespace InventoryManagement.Product
                 if(checkProductExits(productName)==1)
                 {
                     // here we got the result "Product exists"
-                    // if a particular product exists we simply add the qty and make the calulation of 
-                    // update buying price 
+                    // if a particular product exists we simply 
 
                 }
                 else
