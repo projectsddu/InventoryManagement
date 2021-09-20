@@ -16,6 +16,12 @@
 <body>
 
     <!--#include file="~/static/Home/shared_navbar.html"-->
+    <% 
+        if(ViewState["message"]!=null)
+        {
+            Response.Write("<div class='alert alert-"+ViewState["status"]+" alert-dismissible fade show' role='alert'><strong>"+ViewState["message"]+"</strong> <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>");
+        }
+        %>
     <div class="container">
         <form id="form1" class="mt-4 container" runat="server">
             <div class="mb-3">
