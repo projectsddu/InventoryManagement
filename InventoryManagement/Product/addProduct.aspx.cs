@@ -42,5 +42,10 @@ namespace InventoryManagement.Product
                 Response.Write("Error:" + err.Message);
             }
         }
+
+        protected void submitProduct_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

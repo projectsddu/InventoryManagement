@@ -14,36 +14,41 @@
     <title>Add Product</title>
 </head>
 <body>
-    <!--#include file="~/static/Home/shared_navbar.html"-->
-    <form id="form1" class="mt-4 container" runat="server">
-        <div class="mb-3">
-            <label for="productName" class="form-label"><b>Product Name: </b>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage=" *Product name is required!" BackColor="White" ControlToValidate="TextboxproductName" ForeColor="Red"></asp:RequiredFieldValidator>
-            </label>
-            &nbsp;<asp:TextBox ID="TextboxproductName" type="text" class="form-control" aria-describedby="emailHelp" runat="server"></asp:TextBox>
-        </div>
 
-        <div class="mb-3">
-            <label for="TextboxQuantity" class="form-label"><b>Quantity:</b></label>
-            <asp:TextBox ID="TextboxQuantity" type="number" class="form-control" aria-describedby="emailHelp" runat="server"></asp:TextBox>
-        </div>
-        <div class="mb-3">
-            <label for="TextBoxBuyingPrice" class="form-label"><b>Buying Price:</b></label>
-            <asp:TextBox ID="TextBoxBuyingPrice" type="number" class="form-control" aria-describedby="emailHelp" runat="server"></asp:TextBox>
-        </div>
-        <div class="mb-3">
-            <label for="TextBoxBuyingPrice" class="form-label"><b>Selling Price:</b></label>
-            <asp:TextBox ID="sellingPrice" type="number" class="form-control" aria-describedby="emailHelp" runat="server"></asp:TextBox>
-        </div>
-        <div class="mb-3">
-            <label for="TextBoxBuyingPrice" class="form-label"><b>Select Category:</b></label><br />
-            <asp:DropDownList ID="categoryDropdown" class="btn btn-secondary dropdown-toggle" type="button" runat="server"></asp:DropDownList>
-        </div>
-        <div class="mb-3">
-            <asp:Button ID="submitProduct" runat="server" Text="Add Product" class ="btn btn-success" />
-        </div>
-        
-    </form>
+    <!--#include file="~/static/Home/shared_navbar.html"-->
+    <div class="container">
+        <form id="form1" class="mt-4 container" runat="server">
+            <div class="mb-3">
+                <label for="productName" class="form-label">
+                    <b>Product Name: </b>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidatorName" runat="server" ErrorMessage=" *Product name is required!" BackColor="White" ControlToValidate="TextboxproductName" ForeColor="Red"></asp:RequiredFieldValidator>
+                </label>
+                &nbsp;<asp:TextBox ID="TextboxproductName" type="text" class="form-control" aria-describedby="emailHelp" runat="server"></asp:TextBox>
+            </div>
+
+            <div class="mb-3">
+                <label for="TextboxQuantity" class="form-label"><b>Quantity: </b></label>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidatorQuantity" runat="server" ErrorMessage=" *Quantity is required!!" BackColor="White" ControlToValidate="TextboxQuantity" ForeColor="Red"></asp:RequiredFieldValidator>
+                &nbsp;<asp:TextBox ID="TextboxQuantity" type="number" class="form-control" aria-describedby="emailHelp" runat="server"></asp:TextBox>
+            </div>
+            <div class="mb-3">
+                <label for="TextBoxBuyingPrice" class="form-label"><b>Buying Price:</b></label>
+                <asp:TextBox ID="TextBoxBuyingPrice" type="number" class="form-control" aria-describedby="emailHelp" runat="server"></asp:TextBox>
+            </div>
+            <div class="mb-3">
+                <label for="TextBoxBuyingPrice" class="form-label"><b>Selling Price:</b></label>
+                <asp:TextBox ID="sellingPrice" type="number" class="form-control" aria-describedby="emailHelp" runat="server"></asp:TextBox>
+            </div>
+            <div class="mb-3">
+                <label for="TextBoxBuyingPrice" class="form-label"><b>Select Category:</b></label><br />
+                <asp:DropDownList ID="categoryDropdown" class="btn btn-secondary dropdown-toggle" type="button" runat="server"></asp:DropDownList>
+            </div>
+            <div class="mb-3">
+                <asp:Button ID="submitProduct" runat="server" Text="Add Product" class="btn btn-success" />
+            </div>
+
+        </form>
+    </div>
 
     <!-- Optional JavaScript; choose one of the two! -->
 
