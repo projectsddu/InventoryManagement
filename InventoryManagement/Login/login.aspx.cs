@@ -13,14 +13,15 @@ namespace InventoryManagement.Login
 {
     public partial class login : System.Web.UI.Page
     {
-
         
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
 
-        
+       
+
 
         protected void loginBtn_Click(object sender, EventArgs e)
         {
@@ -47,10 +48,13 @@ namespace InventoryManagement.Login
                     if(count == 1)
                     {
                         Response.Write("success");
+                        Session["userName"] = name;
+                        Response.Redirect("https://localhost:44315/home/home.aspx");
                     }
                     else
                     {
-                        Response.Write("fails");
+                        ViewState["errorMessage"] = "Wrong username or password!!";
+                        
                     }
                     connection.Close();
                 }

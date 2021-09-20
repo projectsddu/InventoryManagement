@@ -73,16 +73,28 @@
     </Content>
     <Content Include="bootstrap\css\bootstrap_main.css" />
     <Content Include="bootstrap\css\login\login.css" />
+    <Content Include="bootstrap\css\viewProductSearchBox\searchBox.css" />
     <Content Include="bootstrap\js\bootstrap_main_javascript.js" />
+    <Content Include="Category\addCategory.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Home\home.aspx" />
     <Content Include="Login\login.aspx" />
+    <Content Include="Product\addProduct.aspx" />
+    <Content Include="Product\viewProduct.aspx" />
     <Content Include="static\Home\shared_navbar.html" />
     <Content Include="static\login_navbar.html" />
     <Content Include="static\Help\TextFile1.txt" />
+    <Content Include="static\Product\viewProductTable.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Category\addCategory.aspx.cs">
+      <DependentUpon>addCategory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Category\addCategory.aspx.designer.cs">
+      <DependentUpon>addCategory.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -99,6 +111,20 @@
     </Compile>
     <Compile Include="Login\login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Product\addProduct.aspx.cs">
+      <DependentUpon>addProduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Product\addProduct.aspx.designer.cs">
+      <DependentUpon>addProduct.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Product\viewProduct.aspx.cs">
+      <DependentUpon>viewProduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Product\viewProduct.aspx.designer.cs">
+      <DependentUpon>viewProduct.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

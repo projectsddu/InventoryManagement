@@ -7,11 +7,11 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link active" aria-current="page" href="https://localhost:44315/Home/home.aspx">Home</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdownBill" role="button" data-bs-toggle="dropdown" aria-expanded="true">
-                        Bill
+                        <b>Bill</b>
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownBill">
                         <li><a class="dropdown-item" href="#">New Bill</a></li>
@@ -21,20 +21,25 @@
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdownProduct" role="button" data-bs-toggle="dropdown" aria-expanded="true">
-                        Product
+                        <b>Product</b>
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownProduct">
-                        <li><a class="dropdown-item" href="#">Add Product</a></li>
-                        <li><a class="dropdown-item" href="#">Add Category</a></li>
-                        <li><a class="dropdown-item" href="#">View Products</a></li>
+                        <li><a class="dropdown-item" href="https://localhost:44315/Product/addProduct.aspx">Add Product</a></li>
+                        <li><a class="dropdown-item" href="https://localhost:44315/Product/viewProduct.aspx">View Products</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownCategory" role="button" data-bs-toggle="dropdown" aria-expanded="true">
+                        <b>Category</b>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownCategory">
+                        <li><a class="dropdown-item" href="https://localhost:44315/Category/addCategory.aspx">Add Category</a></li>
+                        <li><a class="dropdown-item" href="#">View Categories</a></li>
                     </ul>
                 </li>
 
             </ul>
-            <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
         </div>
     </div>
 </nav>

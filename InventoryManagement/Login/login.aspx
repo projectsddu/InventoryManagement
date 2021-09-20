@@ -14,9 +14,16 @@
     </style>
 </head>
 <body>
+     
     <%--include navbar from static folder--%>
     <!--#include file="~/static/login_navbar.html"-->
-
+      <div class="messagealert" id="alert_container">
+            </div>
+    <% if (ViewState["errorMessage"] != null)
+        {
+            Response.Write("<div class='alert alert-danger alert-dismissible fade show' role='alert'><strong>"+ViewState["errorMessage"]+"</strong></div>");
+        }
+      %>
     <form id="form1" runat="server">
         <div class="container content-login-center">
             <div>
