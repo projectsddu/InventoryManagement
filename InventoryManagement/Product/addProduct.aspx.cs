@@ -103,6 +103,7 @@ namespace InventoryManagement.Product
             {
                 try
                 {
+
                     connection.Open();
                     string command = "UPDATE Product SET SellingPrice=@maxSellPrice WHERE ProductName=@pdtName";
                     SqlCommand cmd = new SqlCommand(command,connection);
@@ -119,6 +120,7 @@ namespace InventoryManagement.Product
                     {
                         return false;
                     }
+
                 }
                 catch(Exception e)
                 {
