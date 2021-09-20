@@ -67,15 +67,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\InventoryDatabase.mdf" />
-    <Content Include="App_Data\InventoryDatabase_log.ldf">
-      <DependentUpon>InventoryDatabase.mdf</DependentUpon>
+    <Content Include="App_Data\InventoryManagement.mdf" />
+    <Content Include="App_Data\InventoryManagement_log.ldf">
+      <DependentUpon>InventoryManagement.mdf</DependentUpon>
     </Content>
+    <Content Include="Bill\newBill.aspx" />
+    <Content Include="Bill\viewBill.aspx" />
     <Content Include="bootstrap\css\bootstrap_main.css" />
     <Content Include="bootstrap\css\login\login.css" />
     <Content Include="bootstrap\css\viewProductSearchBox\searchBox.css" />
     <Content Include="bootstrap\js\bootstrap_main_javascript.js" />
     <Content Include="Category\addCategory.aspx" />
+    <Content Include="Customer\addCustomer.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Home\home.aspx" />
     <Content Include="Login\login.aspx" />
@@ -88,12 +91,33 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bill\newBill.aspx.cs">
+      <DependentUpon>newBill.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Bill\newBill.aspx.designer.cs">
+      <DependentUpon>newBill.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Bill\viewBill.aspx.cs">
+      <DependentUpon>viewBill.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Bill\viewBill.aspx.designer.cs">
+      <DependentUpon>viewBill.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Category\addCategory.aspx.cs">
       <DependentUpon>addCategory.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Category\addCategory.aspx.designer.cs">
       <DependentUpon>addCategory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\addCustomer.aspx.cs">
+      <DependentUpon>addCustomer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customer\addCustomer.aspx.designer.cs">
+      <DependentUpon>addCustomer.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -168,6 +192,13 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <Target Name="CopyRoslynFiles" AfterTargets="AfterBuild" Condition="!$(Disable_CopyWebApplication) And '$(OutDir)' != '$(OutputPath)'">
+    <ItemGroup>
+      <RoslynFiles Include="$(CscToolPath)\*" />
+    </ItemGroup>
+    <MakeDir Directories="$(WebProjectOutputDir)\bin\roslyn" />
+    <Copy SourceFiles="@(RoslynFiles)" DestinationFolder="$(WebProjectOutputDir)\bin\roslyn" SkipUnchangedFiles="true" Retries="$(CopyRetryCount)" RetryDelayMilliseconds="$(CopyRetryDelayMilliseconds)" />
   </Target>
   <Target Name="CopyRoslynFiles" AfterTargets="AfterBuild" Condition="!$(Disable_CopyWebApplication) And '$(OutDir)' != '$(OutputPath)'">
     <ItemGroup>

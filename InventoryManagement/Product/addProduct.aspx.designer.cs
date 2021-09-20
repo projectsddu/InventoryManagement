@@ -60,6 +60,15 @@ namespace InventoryManagement.Product
         protected global::System.Web.UI.WebControls.TextBox TextboxQuantity;
 
         /// <summary>
+        /// buyingPriceValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator buyingPriceValidator;
+
+        /// <summary>
         /// TextBoxBuyingPrice control.
         /// </summary>
         /// <remarks>
@@ -67,6 +76,15 @@ namespace InventoryManagement.Product
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBoxBuyingPrice;
+
+        /// <summary>
+        /// sellingPriceValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator sellingPriceValidator;
 
         /// <summary>
         /// sellingPrice control.
@@ -85,6 +103,15 @@ namespace InventoryManagement.Product
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList categoryDropdown;
+
+        /// <summary>
+        /// SqlDataSource1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
 
         /// <summary>
         /// submitProduct control.
