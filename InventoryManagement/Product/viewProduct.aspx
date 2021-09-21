@@ -19,57 +19,68 @@
 </head>
 <body>
     <!--#include file="~/static/Home/shared_navbar.html"-->
-    
-    <div class="container" style="margin-top: 7%;">
-        <form class="form-wrapper cf">
-            <input type="text" class="search" placeholder="Search Product here" required>
-        </form>
-        <a href="../../Product/addProduct.aspx" style="text-decoration: none;">
-            <button class="btn btn-success btn-add-product" style="display: inline;">ADD PRODUCT</button></a><br />
-        <br />
-    </div>
-    <div class="container">
-    <table class="table table-hover mt-1" id="productTable">
-        <thead>
-            <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Product Name</th>
-                <th scope="col">CategoryName</th>
-                <th scope="col">Quantity</th>
-                <th scope="col">Buying Price</th>
-                <th scope="col">Selling Price</th>
-                <th scope="col">Update</th>
-                <th scope="col">Delete</th>
-            </tr>
-        </thead>
-        <tbody>
-    <%
-        if (ViewState["products"] != null)
-        {
-            List<Product> products = new List<Product>( (List<Product>)ViewState["products"]);
-            //products = (List<Product>)ViewState["products"];
-            for(int i = 0; i < Convert.ToInt32(ViewState["noOfProducts"]); i++)
-            {
-                Response.Write("<tr>" +
-                     "<th scope='row'>"+products[i].ProductId+"</th>" +
-                     "<td>"+products[i].ProductName+"</td>" +
-                     "<td>"+products[i].CategoryName+"</td>" +
-                     "<td>"+products[i].Quantity+"</td>" +
-                     "<td>&#x20B9; "+products[i].BuyingPrice+"</td>" +
-                     "<td>&#x20B9; "+products[i].SellingPrice+"</td>"+
-                     "<td><button class='btn btn-success'>Update</button></td>" +
-                     "<td><button class='btn btn-danger'>Delete</button></td>" +
-                 "</tr>");
-            }
-        }
-    %>
-    </tbody>
-    </table>
-</div>
+
     <form id="form1" runat="server">
-        <div>
+    <div class="container" style="margin-top: 7%;">
+        <div class="form-wrapper cf">
+            <input type="text" class="search" placeholder="Search Product here" required>
         </div>
+            <asp:LinkButton
+                class="btn btn-success btn-add-product"
+                Style="display: inline;"
+                ID="addProductBtn"
+                runat="server"
+                PostBackUrl="~/Product/addProduct.aspx">
+            ADD PRODUCT
+
+            </asp:LinkButton>
+
+        
+
+            <br />
+
+            <br />
+    </div>
     </form>
+    <div class="container">
+        <table class="table table-hover mt-1" id="productTable">
+            <thead>
+                <tr>
+                    <th scope="col">Product Id</th>
+                    <th scope="col">Product Name</th>
+                    <th scope="col">CategoryName</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Buying Price</th>
+                    <th scope="col">Selling Price</th>
+                    <th scope="col">Update</th>
+                    <th scope="col">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <%
+                    if (ViewState["products"] != null)
+                    {
+                        List<Product> products = new List<Product>((List<Product>)ViewState["products"]);
+                        //products = (List<Product>)ViewState["products"];
+                        for (int i = 0; i < Convert.ToInt32(ViewState["noOfProducts"]); i++)
+                        {
+                            Response.Write("<tr>" +
+                                 "<th scope='row'>" + products[i].ProductId + "</th>" +
+                                 "<td>" + products[i].ProductName + "</td>" +
+                                 "<td>" + products[i].CategoryName + "</td>" +
+                                 "<td>" + products[i].Quantity + "</td>" +
+                                 "<td>&#x20B9; " + products[i].BuyingPrice + "</td>" +
+                                 "<td>&#x20B9; " + products[i].SellingPrice + "</td>" +
+                                 "<td><a href='/Product/updateProduct.aspx/?id=" + products[i].ProductId + "'><button class='btn btn-success'>Update</button></a></td>" +
+                                 "<td><a href='/Product/updateProduct.aspx/?id=" + products[i].ProductId + "'><button class='btn btn-danger'>Delete</button></a></td>" +
+                             "</tr>");
+                        }
+                    }
+                %>
+            </tbody>
+        </table>
+    </div>
+    
 
     <script>
         $(document).ready(function () {

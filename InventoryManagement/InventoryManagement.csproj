@@ -83,6 +83,8 @@
     <Content Include="Home\home.aspx" />
     <Content Include="Login\login.aspx" />
     <Content Include="Product\addProduct.aspx" />
+    <Content Include="Product\deleteProduct.aspx" />
+    <Content Include="Product\updateProduct.aspx" />
     <Content Include="Product\viewProduct.aspx" />
     <Content Include="static\Home\shared_navbar.html" />
     <Content Include="static\login_navbar.html" />
@@ -143,6 +145,20 @@
     <Compile Include="Product\addProduct.aspx.designer.cs">
       <DependentUpon>addProduct.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Product\deleteProduct.aspx.cs">
+      <DependentUpon>deleteProduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Product\deleteProduct.aspx.designer.cs">
+      <DependentUpon>deleteProduct.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Product\updateProduct.aspx.cs">
+      <DependentUpon>updateProduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Product\updateProduct.aspx.designer.cs">
+      <DependentUpon>updateProduct.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Product\viewProduct.aspx.cs">
       <DependentUpon>viewProduct.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -192,6 +208,13 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <Target Name="CopyRoslynFiles" AfterTargets="AfterBuild" Condition="!$(Disable_CopyWebApplication) And '$(OutDir)' != '$(OutputPath)'">
+    <ItemGroup>
+      <RoslynFiles Include="$(CscToolPath)\*" />
+    </ItemGroup>
+    <MakeDir Directories="$(WebProjectOutputDir)\bin\roslyn" />
+    <Copy SourceFiles="@(RoslynFiles)" DestinationFolder="$(WebProjectOutputDir)\bin\roslyn" SkipUnchangedFiles="true" Retries="$(CopyRetryCount)" RetryDelayMilliseconds="$(CopyRetryDelayMilliseconds)" />
   </Target>
   <Target Name="CopyRoslynFiles" AfterTargets="AfterBuild" Condition="!$(Disable_CopyWebApplication) And '$(OutDir)' != '$(OutputPath)'">
     <ItemGroup>
