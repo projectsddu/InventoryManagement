@@ -25,7 +25,7 @@
         {
             Response.Write("<div class='alert alert-"+ViewState["status"]+" alert-dismissible fade show' role='alert'><strong>" + ViewState["message"] + " </strong> <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>");
         }            %>
-    <form id="form1" class="container mt-4" runat="server">
+    <form id="form1" class="container" style="margin-top: 4%;" runat="server">
 
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label display-6" style="font-size:30px; wid"><b>Category Name:</b></label>

@@ -49,7 +49,7 @@ namespace InventoryManagement.Login
                     {
                         Response.Write("success");
                         Session["userName"] = name;
-                        Session.Timeout = 10;
+                        Session.Timeout = 300;
                         Response.Redirect("https://localhost:44315/home/home.aspx");
                     }
                     else
