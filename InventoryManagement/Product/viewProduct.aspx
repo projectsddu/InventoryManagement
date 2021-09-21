@@ -72,7 +72,7 @@
                                  "<td>&#x20B9; " + products[i].BuyingPrice + "</td>" +
                                  "<td>&#x20B9; " + products[i].SellingPrice + "</td>" +
                                  "<td><a href='/Product/updateProduct.aspx/?id=" + products[i].ProductId + "'><button class='btn btn-success'>Update</button></a></td>" +
-                                 "<td><a href='/Product/updateProduct.aspx/?id=" + products[i].ProductId + "'><button class='btn btn-danger'>Delete</button></a></td>" +
+                                 "<td><a href='/Product/deleteProduct.aspx/?id=" + products[i].ProductId + "'><button class='btn btn-danger'>Delete</button></a></td>" +
                              "</tr>");
                         }
                     }
