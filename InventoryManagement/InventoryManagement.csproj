@@ -86,6 +86,7 @@
     <Content Include="Product\deleteProduct.aspx" />
     <Content Include="Product\updateProduct.aspx" />
     <Content Include="Product\viewProduct.aspx" />
+    <Content Include="static\Bill\newBillSelect.js" />
     <Content Include="static\Home\shared_navbar.html" />
     <Content Include="static\login_navbar.html" />
     <Content Include="static\Help\TextFile1.txt" />
