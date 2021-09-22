@@ -16,88 +16,76 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
     <title>New Bill</title>
+    <style type="text/css">
+        .auto-style1 {
+            width: 184px;
+        }
+
+        .auto-style2 {
+            width: 184px;
+            height: 24px;
+        }
+
+        .auto-style3 {
+            width: 282px;
+        }
+
+        .auto-style4 {
+            width: 282px;
+            height: 24px;
+        }
+        .editListBox {
+            background-color: white;
+        }
+        .hideme{
+            display:none;
+        }
+    </style>
 </head>
 <body>
     <!--#include file="~/static/Home/shared_navbar.html"-->
-    <div class="row container-fluid">
-        <div class="col-6" style="border-right: 2px solid black;">
-            <div class="form-wrapper cf" style="margin-left: 7%;">
-                <input type="text" class="search" placeholder="Search Product here" required>
-            </div>
-            <div class="">
-                <table class="table table-hover mt-1" id="productTable">
-                    <thead>
-                        <tr>
-                            <th scope="col">Product Id</th>
-                            <th scope="col">Product Name</th>
-                            <th scope="col">CategoryName</th>
-                            <th scope="col">Quantity</th>
-                            <th scope="col">Selling Price</th>
-                            <th scope="col">Select</th>
+    <form runat="server" id="form2">
+        <div>
+            <asp:DropDownList ID="DropDownListItems" runat="server" DataSourceID="SqlDataSource1" DataTextField="ProductName" DataValueField="ProductId" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList>
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:connectionStringJenil %>" SelectCommand="SELECT [ProductId], [ProductName], [Quantity], [BuyingPrice], [SellingPrice] FROM [Product]"></asp:SqlDataSource>
+            <table class="w-100">
+                <tr>
+                    <td class="auto-style1">Product Name:</td>
+                    <td class="auto-style3">
+                        <asp:Label ID="LabelProductName" runat="server" Text="none"></asp:Label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style1">Selling&nbsp; Price (<asp:Label ID="LabelSellingPrice" runat="server" Text="none"></asp:Label>):</td>
+                    <td class="auto-style3">
+                        <asp:TextBox ID="TextBoxSellingPrice" type="number" runat="server" Text="none"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style2">Quantity: (<asp:Label ID="LabelQuantity" runat="server" Text="none"></asp:Label>)</td>
+                    <td class="auto-style4">
+                        <asp:TextBox ID="TextBoxLabelQuantity" type="number" runat="server" Text="none"></asp:TextBox>
+                    </td>
+                </tr>
 
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <%
-                            if (ViewState["products"] != null)
-                            {
-                                List<Product> products = new List<Product>((List<Product>)ViewState["products"]);
-                                //products = (List<Product>)ViewState["products"];
-                                for (int i = 0; i < Convert.ToInt32(ViewState["noOfProducts"]); i++)
-                                {
-                                    Response.Write("<tr>" +
-                                         "<th scope='row'>" + products[i].ProductId + "</th>" +
-                                         "<td id='pdtName" + products[i].ProductId + "'>" + products[i].ProductName + "</td>" +
-                                         "<td>" + products[i].CategoryName + "</td>" +
-                                         "<td id='pdtQty" + products[i].ProductId + "'>" + products[i].Quantity + "</td>" +
-
-                                         "<td id='pdtSellPrice" + products[i].ProductId + "'>&#x20B9; " + products[i].SellingPrice + "</td>" +
-                                         "<td><button id='" + products[i].ProductId + "' class='btn btn-success selectHandle' onClick=''>Select</button></td>" +
-                                     "</tr>");
-                                }
-                            }
-                        %>
-                    </tbody>
-                </table>
-            </div>
-
+            </table>
+            <asp:Button ID="ButtonAddItem" runat="server" OnClick="ButtonAddItem_Click" Text="Add Item" />
+            <br />
+            <br />
+            Customer Name:<asp:TextBox ID="TextBoxCustomerName" runat="server"></asp:TextBox>
+&nbsp;&nbsp; Phone Number<asp:TextBox ID="TextBoxPhoneNumber" runat="server"></asp:TextBox>
+&nbsp;<br />
+            <asp:ListBox CssClass="editListBox" ID="ListBoxAllItems" runat="server"></asp:ListBox>
+            &nbsp;<asp:ListBox CssClass="hideme" ID="ListBoxid" runat="server"></asp:ListBox>
+            <br />
         </div>
-        <div class="col-6 mt-4" style="border-left: 2px solid black">
-            <form id="form1" runat="server"> 
-                <div class="row">
-                    <div class="col-6">
-                        Name:
-                        <asp:TextBox ID="TextBoxName" runat="server" type="text"
-                            class="form-control" ></asp:TextBox>
-                    </div>
-                    <div class="col-6">
-                        PhoneNumber:
-                        <asp:TextBox ID="TextBoxPhoneNo" runat="server" type="text"
-                            class="form-control " Style="display: inline"></asp:TextBox>
-                    </div>
-                </div>
-                <hr />
-                <div>
-                    <table class="table table-hover mt-1" id="productTable">
-                        <thead>
-                            <tr>
-                                <th scope="col">S.No</th>
-                                <th scope="col">Product Name</th>
-                                <th scope="col">Quantity</th>
-                                <th scope="col">Selling Price</th>
-                                <th scope="col">Total Price</th>
-                                <th scope="col">Delete</th>
 
-                            </tr>
-                        </thead>
-                        <tbody id="tbodyIdBill">
-                            <tr><th scope="row">1</th><td id="pdtName1">SandWitch </td><td>medicine</td><td id="pdtQty1">3</td><td id="pdtSellPrice1">₹ 500</td><td><button id="1" class="btn btn-success selectHandle" onclick="">Select</button></td></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </form>
-        </div>
-    </div>
+    
+        <asp:Button ID="SubmitButton" runat="server" Text="Make Bill" OnClick="SubmitButton_Click" />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Button ID="ButtonRemoveItems" runat="server" OnClick="ButtonRemoveItems_Click" Text="Remove" />
+    </form>
+
 
 
 

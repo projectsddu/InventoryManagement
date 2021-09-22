@@ -9,8 +9,10 @@ using System.Data;
 using System.Web.Configuration;
 using System.Data.SqlClient;
 
+
 namespace InventoryManagement.Bill
 {
+    
     public partial class newBill : System.Web.UI.Page
     {
         [Serializable]
@@ -24,6 +26,10 @@ namespace InventoryManagement.Bill
 
             public int BuyingPrice { get; set; }
             public int SellingPrice { get; set; }
+            public string ToString()
+            {
+                return this.ProductName + " " + this.Quantity + " " + this.SellingPrice;
+            }
 
         }
 
@@ -59,6 +65,8 @@ namespace InventoryManagement.Bill
         }
 
         string conStr;
+
+      
         protected void Page_Load(object sender, EventArgs e)
         {
             conStr = Convert.ToString(Application["constr"]);
@@ -101,6 +109,165 @@ namespace InventoryManagement.Bill
             {
                 connection.Close();
             }
+        }
+        protected Product getPdtById(int id)
+        {
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = conStr;
+            Product p = new Product();
+            try
+            {
+                using(connection)
+                {
+                    connection.Open();
+                    string command = "SELECT * FROM Product WHERE ProductId = " + id;
+                    SqlCommand cmd = new SqlCommand(command, connection);
+                    SqlDataReader rdr = cmd.ExecuteReader();
+                    while(rdr.Read())
+                    {
+                        p = new Product()
+                        {
+                            ProductName = Convert.ToString(rdr["ProductName"]),
+                            SellingPrice = Convert.ToInt32(rdr["SellingPrice"]),
+                            Quantity = Convert.ToInt32(rdr["Quantity"])
+                        };
+                        return p;
+                    }
+                }
+            }
+            catch(Exception e)
+            {
+                Response.Write(e.Message);
+            }
+            finally
+            {
+
+            }
+            return p;
+        }
+        protected string[] getDataFromStr(string str)
+        {
+            return str.Split(' ');
+        }
+
+        protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(DropDownListItems.SelectedItem.Value);
+            // now fetch product details
+            //Response.Write(id);
+            Product pdt = getPdtById(id);
+            LabelProductName.Text = pdt.ProductName;
+            LabelQuantity.Text = Convert.ToString(pdt.Quantity);
+            LabelSellingPrice.Text = Convert.ToString(pdt.SellingPrice);
+            TextBoxSellingPrice.Text = Convert.ToString(pdt.SellingPrice);
+            TextBoxLabelQuantity.Text = Convert.ToString(pdt.Quantity);
+
+
+        }
+
+        protected void ButtonAddItem_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(DropDownListItems.SelectedItem.Value);
+            string pdtName = LabelProductName.Text;
+            int sellingPrice = Convert.ToInt32(TextBoxSellingPrice.Text);
+            int qty = Convert.ToInt32(TextBoxLabelQuantity.Text);
+
+            Product p = new Product()
+            {
+                ProductName = pdtName,
+                SellingPrice = sellingPrice,
+                Quantity = qty,
+                ProductId = id
+            };
+            //ListBoxAllItems.Items.Add( new ListItem( "Product Name: "+pdtName + "    Quantity:" + qty + "      Price:" + sellingPrice));
+            ListBoxAllItems.Items.Add(new ListItem(p.ToString()));
+            ListBoxid.Items.Add(new ListItem(Convert.ToString(p.ProductId+" "+p.Quantity+" "+p.SellingPrice)));
+            int idx = ListBoxAllItems.Items.Count;
+            ListBoxAllItems.Items[idx - 1].Attributes.CssStyle.Add("font-weight", "bold");
+            ListBoxAllItems.Items[idx - 1].Attributes.CssStyle.Add("color", "blue");
+
+        }
+
+        protected void ButtonRemoveItems_Click(object sender, EventArgs e)
+        {
+            int idx = ListBoxAllItems.SelectedIndex;
+            ListBoxAllItems.Items.Remove(ListBoxAllItems.SelectedItem);
+            ListBoxid.Items.RemoveAt(idx);
+        }
+
+        public bool addBillItems(int billId)
+        {
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = conStr;
+            try
+            {
+                using (connection)
+                {
+                    connection.Open();   
+                    int cntr = ListBoxid.Items.Count;
+                    for(int i=0;i<cntr;i++)
+                    {
+                        // 0->Id 1->Qty 2->selling price
+                        string[] c = getDataFromStr(Convert.ToString(ListBoxid.Items[i]));
+                        string command = "INSERT INTO BillDetails (ProductId,Quantity,SellingPrice) VALUES (@idx,@qty,@sellprice)";
+                        SqlCommand cmd = new SqlCommand(command, connection);
+                        cmd.Parameters.AddWithValue("idx", c[0]);
+                        cmd.Parameters.AddWithValue("qty", c[1]);
+                        cmd.Parameters.AddWithValue("sellprice", c[2]);
+                        int row = cmd.ExecuteNonQuery();
+                        if(row==0)
+                        {
+                            return false;
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Response.Write("Adbill items"+e.Message);
+            }
+
+            return false;
+        }
+
+        protected bool addBill()
+        {
+            string customerName = TextBoxCustomerName.Text;
+            string phoneNumber = TextBoxPhoneNumber.Text;
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = conStr;
+            try
+            {
+                using(connection)
+                {
+                    DateTime dt = DateTime.Now;
+                    connection.Open();
+                    string command = "INSERT INTO Bill (BillDate,CustomerName,CustomerPhoneNo) VALUES ('" + dt + "','"+customerName+"','"+phoneNumber+"')";
+                    Response.Write(command);
+                    SqlCommand cmd = new SqlCommand(command, connection);
+                    int rows = cmd.ExecuteNonQuery();
+                    if(rows>0)
+                    {
+                        addBillItems(1);
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+            catch(Exception e)
+            {
+                Response.Write("From Addbill"+e.Message);
+            }
+
+            return false;
+        }
+
+        protected void SubmitButton_Click(object sender, EventArgs e)
+        {
+            addBill();
         }
     }
 }

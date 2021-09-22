@@ -18,11 +18,11 @@ namespace InventoryManagement.Product
         string conStr;
         protected void Page_Load(object sender, EventArgs e)
         {
+           conStr = Convert.ToString(Application["constr"]);
            if(Session["userName"]==null)
             {
                 Response.Redirect("/login/login.aspx");
             }
-           conStr = Convert.ToString(Application["constr"]);
         }
 
         protected int getCategoryId(string categoryName)
