@@ -28,7 +28,7 @@ namespace InventoryManagement.Login
             string name = username.Text;
             string passWord = password.Text;
             SqlConnection connection = new SqlConnection();
-            connection.ConnectionString = WebConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+            connection.ConnectionString = Convert.ToString(Application["constr"]);
             // validation 
             try
             {

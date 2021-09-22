@@ -24,7 +24,7 @@ namespace InventoryManagement.Category
             string categoryName = TextBoxcategoryName.Text;
             // Making a connection to DB.
             SqlConnection connection = new SqlConnection();
-            connection.ConnectionString = WebConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+            connection.ConnectionString = Convert.ToString(Application["constr"]);
             try
             {
                 using (connection)

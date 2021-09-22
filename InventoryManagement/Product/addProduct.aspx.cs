@@ -14,14 +14,15 @@ namespace InventoryManagement.Product
 {
     public partial class addProduct : System.Web.UI.Page
     {
-      
-        string conStr = WebConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+
+        string conStr;
         protected void Page_Load(object sender, EventArgs e)
         {
            if(Session["userName"]==null)
             {
                 Response.Redirect("/login/login.aspx");
             }
+           conStr = Convert.ToString(Application["constr"]);
         }
 
         protected int getCategoryId(string categoryName)

@@ -13,10 +13,11 @@ namespace InventoryManagement.Product
 {
     public partial class updateProduct : System.Web.UI.Page
     {
-        string conStr = WebConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+        string conStr;
         int pid;
         protected void Page_Load(object sender, EventArgs e)
         {
+            conStr = Convert.ToString(Application["constr"]);
             SqlConnection connection = new SqlConnection();
             connection.ConnectionString = conStr;
             try

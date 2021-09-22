@@ -13,11 +13,12 @@ namespace InventoryManagement.Product
 {
     public partial class deleteProduct : System.Web.UI.Page
     {
-        string conStr = WebConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+        string conStr;
         int id;
         protected void Page_Load(object sender, EventArgs e)
         {
             id = Convert.ToInt32(Request.QueryString["id"]);
+            conStr = Convert.ToString(Application["constr"]); ;
         }
 
         protected bool DeleteProduct()

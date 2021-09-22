@@ -58,10 +58,10 @@ namespace InventoryManagement.Product
             return "NoCategory";
         }
 
-        string conStr = WebConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+        string conStr; 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            conStr = Convert.ToString(Application["constr"]);
             SqlConnection connection = new SqlConnection();
             connection.ConnectionString = conStr;
 
