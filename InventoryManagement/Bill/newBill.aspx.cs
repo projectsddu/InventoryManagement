@@ -28,7 +28,7 @@ namespace InventoryManagement.Bill
             public int SellingPrice { get; set; }
             public string ToString()
             {
-                return this.ProductName + " " + this.Quantity + " " + this.SellingPrice;
+                return this.ProductName + " X " + this.Quantity + " , Per Peice Price: " + this.SellingPrice;
             }
 
         }
@@ -209,11 +209,12 @@ namespace InventoryManagement.Bill
                     {
                         // 0->Id 1->Qty 2->selling price
                         string[] c = getDataFromStr(Convert.ToString(ListBoxid.Items[i]));
-                        string command = "INSERT INTO BillDetails (ProductId,Quantity,SellingPrice) VALUES (@idx,@qty,@sellprice)";
+                        string command = "INSERT INTO BillDetails (ProductId,Quantity,SellingPrice,BillId) VALUES (@idx,@qty,@sellprice,@BillId)";
                         SqlCommand cmd = new SqlCommand(command, connection);
                         cmd.Parameters.AddWithValue("idx", c[0]);
                         cmd.Parameters.AddWithValue("qty", c[1]);
                         cmd.Parameters.AddWithValue("sellprice", c[2]);
+                        cmd.Parameters.AddWithValue("BillId", billId);
                         int row = cmd.ExecuteNonQuery();
                         if(row==0)
                         {
@@ -230,6 +231,30 @@ namespace InventoryManagement.Bill
             return false;
         }
 
+        protected int getBillId()
+        {
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = conStr;
+            try
+            {
+                using(connection)
+                {
+                    connection.Open();
+                    string command = "SELECT * FROM Bill ORDER BY BillId DESC";
+                    SqlCommand cmd = new SqlCommand(command, connection);
+                    SqlDataReader rdr = cmd.ExecuteReader();
+                    while(rdr.Read())
+                    {
+                        return Convert.ToInt32(rdr["BillId"]);
+                    }
+                }
+            }
+            catch(Exception err)
+            {
+                Response.Write("getBillId" + err.Message);
+            }
+            return -1;
+        }
         protected bool addBill()
         {
             string customerName = TextBoxCustomerName.Text;
@@ -248,7 +273,7 @@ namespace InventoryManagement.Bill
                     int rows = cmd.ExecuteNonQuery();
                     if(rows>0)
                     {
-                        addBillItems(1);
+                        addBillItems(getBillId());
                         return true;
                     }
                     else

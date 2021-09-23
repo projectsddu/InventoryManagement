@@ -47,7 +47,7 @@
     <form runat="server" id="form2">
         <div>
             <asp:DropDownList ID="DropDownListItems" runat="server" DataSourceID="SqlDataSource1" DataTextField="ProductName" DataValueField="ProductId" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList>
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:connectionStringJenil %>" SelectCommand="SELECT [ProductId], [ProductName], [Quantity], [BuyingPrice], [SellingPrice] FROM [Product]"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:connectionStringKeval %>" SelectCommand="SELECT [ProductId], [ProductName], [Quantity], [BuyingPrice], [SellingPrice] FROM [Product]"></asp:SqlDataSource>
             <table class="w-100">
                 <tr>
                     <td class="auto-style1">Product Name:</td>
@@ -75,8 +75,11 @@
             Customer Name:<asp:TextBox ID="TextBoxCustomerName" runat="server"></asp:TextBox>
 &nbsp;&nbsp; Phone Number<asp:TextBox ID="TextBoxPhoneNumber" runat="server"></asp:TextBox>
 &nbsp;<br />
-            <asp:ListBox CssClass="editListBox" ID="ListBoxAllItems" runat="server"></asp:ListBox>
+            <br />
+            <br />
+            <asp:ListBox CssClass="accordion-item" ID="ListBoxAllItems" runat="server" Height="137px" Width="507px"></asp:ListBox>
             &nbsp;<asp:ListBox CssClass="hideme" ID="ListBoxid" runat="server"></asp:ListBox>
+            <br />
             <br />
         </div>
 
