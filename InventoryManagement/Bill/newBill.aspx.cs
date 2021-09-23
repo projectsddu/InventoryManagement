@@ -185,7 +185,7 @@ namespace InventoryManagement.Bill
             int idx = ListBoxAllItems.Items.Count;
             ListBoxAllItems.Items[idx - 1].Attributes.CssStyle.Add("font-weight", "bold");
             ListBoxAllItems.Items[idx - 1].Attributes.CssStyle.Add("color", "blue");
-
+            
         }
 
         protected void ButtonRemoveItems_Click(object sender, EventArgs e)
@@ -293,6 +293,9 @@ namespace InventoryManagement.Bill
         protected void SubmitButton_Click(object sender, EventArgs e)
         {
             addBill();
+            int id = getBillId();
+            Response.Redirect("/Bill/viewBill.aspx?idx=" + id);
+     
         }
     }
 }

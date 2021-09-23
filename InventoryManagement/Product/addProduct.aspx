@@ -51,7 +51,7 @@
             <div class="mb-3">
                 <label for="TextBoxBuyingPrice" class="form-label"><b>Select Category:</b></label><br />
                 <asp:DropDownList ID="categoryDropdown" class="btn btn-secondary dropdown-toggle" type="button" runat="server" DataSourceID="SqlDataSource1" DataTextField="CategoryName" DataValueField="CategoryName"></asp:DropDownList>
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:connectionStringKeval %>" SelectCommand="SELECT [CategoryName] FROM [Category]"></asp:SqlDataSource>
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:connectionStringRikin %>" SelectCommand="SELECT [CategoryName] FROM [Category]"></asp:SqlDataSource>
             </div>
             <div class="mb-3">
                 <asp:Button ID="submitProduct"   runat="server" Text="Add Product" class="btn btn-success" OnClick="submitProduct_Click1" />

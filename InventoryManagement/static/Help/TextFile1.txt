@@ -18,18 +18,20 @@ CREATE TABLE [dbo].[AdminUser] (
 );
 
 CREATE TABLE [dbo].[Bill] (
-    [BillId]     INT          NOT NULL,
-    [BillDate]   DATETIME     NOT NULL,
-    [TotalCost]  FLOAT (53)   NOT NULL,
-    [CustomerId] VARCHAR (50) NOT NULL,
+    [BillId]          INT           IDENTITY (1, 1) NOT NULL,
+    [BillDate]        VARCHAR (100) NOT NULL,
+    [TotalCost]       FLOAT (53)    NULL,
+    [CustomerName]    VARCHAR (50)  NOT NULL,
+    [CustomerPhoneNo] NCHAR (20)    NULL,
     PRIMARY KEY CLUSTERED ([BillId] ASC)
 );
 
 CREATE TABLE [dbo].[BillDetails] (
-    [BillDetailsId] INT        NOT NULL,
+    [BillDetailsId] INT        IDENTITY (1, 1) NOT NULL,
     [ProductId]     INT        NOT NULL,
     [Quantity]      INT        NOT NULL,
     [SellingPrice]  FLOAT (53) NOT NULL,
+    [BillId]        INT        NOT NULL,
     PRIMARY KEY CLUSTERED ([BillDetailsId] ASC)
 );
 
