@@ -28,7 +28,7 @@ namespace InventoryManagement.Bill
             public int SellingPrice { get; set; }
             public string ToString()
             {
-                return this.ProductName + " X " + this.Quantity + " , Per Peice Price: " + this.SellingPrice;
+                return this.ProductName + " X " + this.Quantity + " , Per Piece Price: " + this.SellingPrice;
             }
 
         }
@@ -72,7 +72,7 @@ namespace InventoryManagement.Bill
             conStr = Convert.ToString(Application["constr"]);
             SqlConnection connection = new SqlConnection();
             connection.ConnectionString = conStr;
-
+            LabelMakeBillStatus.Text = "";
             try
             {
                 using (connection)
@@ -183,8 +183,15 @@ namespace InventoryManagement.Bill
             ListBoxAllItems.Items.Add(new ListItem(p.ToString()));
             ListBoxid.Items.Add(new ListItem(Convert.ToString(p.ProductId+" "+p.Quantity+" "+p.SellingPrice)));
             int idx = ListBoxAllItems.Items.Count;
+            for(int i = 0; i < ListBoxAllItems.Items.Count; i++)
+            {
+                ListBoxAllItems.Items[i].Attributes.CssStyle.Add("padding", "10px");
+                ListBoxAllItems.Items[i].Attributes.CssStyle.Add("margin", "5px");
+                ListBoxAllItems.Items[i].Attributes.CssStyle.Add("color", "#303030");
+                ListBoxAllItems.Items[i].Attributes.CssStyle.Add("background-color", "#FFDAB9");
+            }
             ListBoxAllItems.Items[idx - 1].Attributes.CssStyle.Add("font-weight", "bold");
-            ListBoxAllItems.Items[idx - 1].Attributes.CssStyle.Add("color", "blue");
+            
             
         }
 
@@ -193,6 +200,14 @@ namespace InventoryManagement.Bill
             int idx = ListBoxAllItems.SelectedIndex;
             ListBoxAllItems.Items.Remove(ListBoxAllItems.SelectedItem);
             ListBoxid.Items.RemoveAt(idx);
+
+            for (int i = 0; i < ListBoxAllItems.Items.Count; i++)
+            {
+                ListBoxAllItems.Items[i].Attributes.CssStyle.Add("padding", "10px");
+                ListBoxAllItems.Items[i].Attributes.CssStyle.Add("margin", "5px");
+                ListBoxAllItems.Items[i].Attributes.CssStyle.Add("color", "#303030");
+                ListBoxAllItems.Items[i].Attributes.CssStyle.Add("background-color", "#FFDAB9");
+            }
         }
 
         public bool addBillItems(int billId)
@@ -292,9 +307,16 @@ namespace InventoryManagement.Bill
 
         protected void SubmitButton_Click(object sender, EventArgs e)
         {
-            addBill();
-            int id = getBillId();
-            Response.Redirect("/Bill/viewBill.aspx?idx=" + id);
+            if(ListBoxAllItems.Items.Count != 0)
+            {
+                addBill();
+                int id = getBillId();
+                Response.Redirect("/Bill/viewBill.aspx?idx=" + id);
+            }
+            else
+            {
+                LabelMakeBillStatus.Text = "Please Add items to make bill!!";
+            }
      
         }
     }

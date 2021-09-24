@@ -43,7 +43,7 @@
     </div>
     </form>
     <div class="container">
-        <table class="table table-hover mt-1" id="productTable">
+        <table class="table table-hover mt-1 text-center" id="productTable">
             <thead>
                 <tr>
                     <th scope="col">Product Id</th>
@@ -56,7 +56,7 @@
                     <th scope="col">Delete</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="text-center">
                 <%
                     if (ViewState["products"] != null)
                     {
@@ -65,7 +65,7 @@
                         for (int i = 0; i < Convert.ToInt32(ViewState["noOfProducts"]); i++)
                         {
                             Response.Write("<tr>" +
-                                 "<th scope='row'>" + products[i].ProductId + "</th>" +
+                                 "<td scope='row'>" + products[i].ProductId + "</td>" +
                                  "<td>" + products[i].ProductName + "</td>" +
                                  "<td>" + products[i].CategoryName + "</td>" +
                                  "<td>" + products[i].Quantity + "</td>" +

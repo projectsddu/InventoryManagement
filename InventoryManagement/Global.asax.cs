@@ -18,7 +18,7 @@ namespace InventoryManagement
 
         protected void Application_Start(object sender, EventArgs e)
         {
-            Application["constr"] = WebConfigurationManager.ConnectionStrings["connectionStringRikin"].ConnectionString;
+            Application["constr"] = WebConfigurationManager.ConnectionStrings["connectionStringKeval"].ConnectionString;
         }
 
         protected void Session_Start(object sender, EventArgs e)
