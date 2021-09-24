@@ -69,6 +69,20 @@ namespace InventoryManagement.Bill
       
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["userName"] == null)
+            {
+                Response.Redirect("/Login/login.aspx");
+            }
+            else
+            {
+                for (int i = 0; i < ListBoxAllItems.Items.Count; i++)
+                {
+                    ListBoxAllItems.Items[i].Attributes.CssStyle.Add("padding", "10px");
+                    ListBoxAllItems.Items[i].Attributes.CssStyle.Add("margin", "5px");
+                    ListBoxAllItems.Items[i].Attributes.CssStyle.Add("color", "#303030");
+                    ListBoxAllItems.Items[i].Attributes.CssStyle.Add("background-color", "#FFDAB9");
+                }
+            }
             conStr = Convert.ToString(Application["constr"]);
             SqlConnection connection = new SqlConnection();
             connection.ConnectionString = conStr;
@@ -311,7 +325,14 @@ namespace InventoryManagement.Bill
             {
                 addBill();
                 int id = getBillId();
-                Response.Redirect("/Bill/viewBill.aspx?idx=" + id);
+                if(id==-1)
+                {
+                    Response.Write("Error");
+                }
+                else
+                {
+                    Response.Redirect("/Bill/viewBill.aspx?idx=" + id);
+                }
             }
             else
             {

@@ -21,13 +21,13 @@
     <!--#include file="~/static/Home/shared_navbar.html"-->
 
     <form id="form1" runat="server">
-    <div class="container" style="margin-top: 7%;">
+    <div class="container" style="margin-top: 4%;">
         <div class="form-wrapper cf">
             <input type="text" class="search" placeholder="Search Product here" required>
         </div>
             <asp:LinkButton
                 class="btn btn-success btn-add-product"
-                Style="display: inline;"
+                Style="display: inline-block;"
                 ID="addProductBtn"
                 runat="server"
                 PostBackUrl="~/Product/addProduct.aspx">

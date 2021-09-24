@@ -17,6 +17,14 @@ namespace InventoryManagement.Product
         int id;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["userName"] == null)
+            {
+                Response.Redirect("/Login/login.aspx");
+            }
+            else
+            {
+
+            }
             id = Convert.ToInt32(Request.QueryString["id"]);
             conStr = Convert.ToString(Application["constr"]); ;
         }

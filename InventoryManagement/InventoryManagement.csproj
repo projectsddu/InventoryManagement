@@ -73,6 +73,7 @@
     </Content>
     <Content Include="Bill\newBill.aspx" />
     <Content Include="Bill\viewBill.aspx" />
+    <Content Include="bootstrap\css\addProduct.css" />
     <Content Include="bootstrap\css\bootstrap_main.css" />
     <Content Include="bootstrap\css\login\login.css" />
     <Content Include="bootstrap\css\viewProductSearchBox\searchBox.css" />
@@ -82,6 +83,7 @@
     <Content Include="Customer\addCustomer.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Home\home.aspx" />
+    <Content Include="Home\logout.aspx" />
     <Content Include="Login\login.aspx" />
     <Content Include="Product\addProduct.aspx" />
     <Content Include="Product\deleteProduct.aspx" />
@@ -139,6 +141,13 @@
     </Compile>
     <Compile Include="Home\home.aspx.designer.cs">
       <DependentUpon>home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Home\logout.aspx.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home\logout.aspx.designer.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>

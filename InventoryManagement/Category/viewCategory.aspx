@@ -17,7 +17,7 @@
       <!--#include file="~/static/Home/shared_navbar.html"-->
 
       <div class="container">
-        <table class="table table-hover mt-4 text-center" id="productTable">
+        <table style="width: 50%; margin-left: 23%;" class="table table-hover mt-4 text-center" id="productTable">
             <thead>
                 <tr>
                     <th scope="col">Category Id</th>

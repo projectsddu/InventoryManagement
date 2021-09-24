@@ -11,7 +11,7 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-
+    <link href="../bootstrap/css/addProduct.css" rel="stylesheet" />
     <title>Add Category</title>
     <style type="text/css">
         .auto-style1 {
@@ -25,12 +25,15 @@
         {
             Response.Write("<div class='alert alert-"+ViewState["status"]+" alert-dismissible fade show' role='alert'><strong>" + ViewState["message"] + " </strong> <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>");
         }            %>
-    <form id="form1" class="container" style="margin-top: 4%;" runat="server">
+    <div class="container">
 
+    <form id="form1" class="" style="margin-top: 4%;" runat="server">
+        <h1>ADD CATEGORY</h1><hr style="border: 2px solid black" />
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label display-6" style="font-size:30px; wid"><b>Category Name:</b></label>
-        
-            <asp:TextBox ID="TextBoxcategoryName" runat="server" type="text" class="form-control" aria-describedby="emailHelp" Height="37px" Width="349px"></asp:TextBox>
+            <label for="productName" class="form-label">
+                    <b>Category Name:</b>        
+            </label>
+            &nbsp;<asp:TextBox ID="TextBoxcategoryName" type="text" class="form-control" aria-describedby="emailHelp" runat="server"></asp:TextBox>
 
             <strong>
             <asp:RequiredFieldValidator ID="RequiredFieldValidatorCategoryName" runat="server" ControlToValidate="TextBoxcategoryName" CssClass="auto-style1" ErrorMessage="* Category name is required!!"></asp:RequiredFieldValidator>
@@ -41,6 +44,7 @@
         <asp:Button ID="addCategoryBtn" class="btn btn-success" runat="server" Text="Add Category" OnClick="addCategoryBtn_Click" />
 
     </form>
+    </div>
 
     <!-- Optional JavaScript; choose one of the two! -->
 

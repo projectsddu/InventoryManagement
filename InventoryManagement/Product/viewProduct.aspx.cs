@@ -61,6 +61,14 @@ namespace InventoryManagement.Product
         string conStr; 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["userName"] == null)
+            {
+                Response.Redirect("/Login/login.aspx");
+            }
+            else
+            {
+
+            }
             conStr = Convert.ToString(Application["constr"]);
             SqlConnection connection = new SqlConnection();
             connection.ConnectionString = conStr;

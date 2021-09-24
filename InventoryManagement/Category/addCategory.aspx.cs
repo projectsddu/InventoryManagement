@@ -16,7 +16,14 @@ namespace InventoryManagement.Category
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["userName"] == null)
+            {
+                Response.Redirect("/Login/login.aspx");
+            }
+            else
+            {
 
+            }
         }
         protected void addCategoryBtn_Click(object sender,EventArgs e)
         {

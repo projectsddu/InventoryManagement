@@ -17,7 +17,7 @@ namespace InventoryManagement.Login
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
 
        
@@ -50,7 +50,7 @@ namespace InventoryManagement.Login
                         Response.Write("success");
                         Session["userName"] = name;
                         Session.Timeout = 300;
-                        Response.Redirect("https://localhost:44315/home/home.aspx");
+                        Response.Redirect("/Home/home.aspx");
                     }
                     else
                     {

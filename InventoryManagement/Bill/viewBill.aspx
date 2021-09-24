@@ -24,7 +24,7 @@
                         int totalPrice = 0;
                         int totalQuantity = 0;
                         Response.Write(
-                            "<table class='table container text-center mt-4 table-hover'>" +
+                            "<table style='width: 60%' class='table container text-center mt-4 table-hover'>" +
                             "<thead>" +
                               "<tr>" +
                                 "<th scope='col'> Product Name </th>" +
@@ -64,7 +64,7 @@
                     else
                     {
                         Response.Write(
-                            "<table class='table container text-center mt-4 table-hover'>" +
+                            "<table style='width: 60%' class='table container text-center mt-4 table-hover'>" +
                             "<thead>" +
                               "<tr>" +
                                 "<th scope='col'> Bill Id </th>" +

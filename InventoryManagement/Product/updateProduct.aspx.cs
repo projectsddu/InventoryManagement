@@ -17,6 +17,14 @@ namespace InventoryManagement.Product
         int pid;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["userName"] == null)
+            {
+                Response.Redirect("/Login/login.aspx");
+            }
+            else
+            {
+
+            }
             conStr = Convert.ToString(Application["constr"]);
             SqlConnection connection = new SqlConnection();
             connection.ConnectionString = conStr;
@@ -104,10 +112,6 @@ namespace InventoryManagement.Product
             {
                 ViewState["message"] = "Product updated successfully!!";
                 ViewState["status"] = "success";
-                Response.Write("<script>window.alert('Product is updated!')</script>");
-               
-                //Response.Redirect("/Product/viewProduct.aspx");
-
             }
             else
             {

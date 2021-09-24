@@ -151,6 +151,14 @@ namespace InventoryManagement.Bill
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["userName"] == null)
+            {
+                Response.Redirect("/Login/login.aspx");
+            }
+            else
+            {
+
+            }
             conStr = Convert.ToString(Application["constr"]);
             if (Request.QueryString["idx"] != null)
             {

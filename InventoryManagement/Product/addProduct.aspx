@@ -10,7 +10,7 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-
+    <link href="../bootstrap/css/addProduct.css" rel="stylesheet" />
     <title>Add Product</title>
 </head>
 <body>
@@ -23,7 +23,10 @@
         }
         %>
     <div class="container">
-        <form id="form1" class="container" style="margin-top: 8%;" runat="server">
+        <div class="mt-4">
+            <h1>ADD PRODUCT</h1><hr style="border: 2px solid black;"/>
+        </div>
+        <form id="form1" class="container" style="margin-top: 4%;" runat="server">
             <div class="mb-3">
                 <label for="productName" class="form-label">
                     <b>Product Name: </b>
@@ -51,10 +54,10 @@
             <div class="mb-3">
                 <label for="TextBoxBuyingPrice" class="form-label"><b>Select Category:</b></label><br />
                 <asp:DropDownList ID="categoryDropdown" class="btn btn-secondary dropdown-toggle" type="button" runat="server" DataSourceID="SqlDataSource1" DataTextField="CategoryName" DataValueField="CategoryName"></asp:DropDownList>
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:connectionStringKeval %>" SelectCommand="SELECT [CategoryName] FROM [Category]"></asp:SqlDataSource>
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:connectionStringJenil %>" SelectCommand="SELECT [CategoryName] FROM [Category]"></asp:SqlDataSource>
             </div>
-            <div class="mb-3">
-                <asp:Button ID="submitProduct"   runat="server" Text="Add Product" class="btn btn-success" OnClick="submitProduct_Click1" />
+            <div class="mb-3 mt-4">
+                <asp:Button ID="submitProduct"   runat="server" Text="Add Product" class=" btn btn-success" OnClick="submitProduct_Click1" />
             </div>
 
         </form>
