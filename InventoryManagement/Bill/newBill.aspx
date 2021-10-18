@@ -125,7 +125,7 @@
                         <asp:DropDownList ID="DropDownListItems" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource1" DataTextField="ProductName" DataValueField="ProductId" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" Font-Bold="True" BackColor="#CCCCCC" ForeColor="Black" Height="30px" Width="246px" CssClass="dropDownDesign">
                         </asp:DropDownList>
 
-                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:connectionStringKeval %>" SelectCommand="SELECT [ProductId], [ProductName], [Quantity], [BuyingPrice], [SellingPrice] FROM [Product]"></asp:SqlDataSource>
+                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:connectionStringJenil %>" SelectCommand="SELECT [ProductId], [ProductName], [Quantity], [BuyingPrice], [SellingPrice] FROM [Product]"></asp:SqlDataSource>
                     </td>
                 </tr>
 

@@ -18,7 +18,7 @@ namespace InventoryManagement
 
         protected void Application_Start(object sender, EventArgs e)
         {
-            Application["constr"] = WebConfigurationManager.ConnectionStrings["connectionStringKeval"].ConnectionString;
+            Application["constr"] = WebConfigurationManager.ConnectionStrings["connectionStringJenil"].ConnectionString;
         }
 
         protected void Session_Start(object sender, EventArgs e)
@@ -28,7 +28,10 @@ namespace InventoryManagement
 
         protected void Application_BeginRequest(object sender, EventArgs e)
         {
-            
+            if(Request.Url.ToString() == "https://localhost:44315/")
+            {
+                Response.Redirect("/Login/login.aspx");
+            }
         }
 
         protected void Application_AuthenticateRequest(object sender, EventArgs e)

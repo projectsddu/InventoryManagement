@@ -67,6 +67,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin\Add_Admin.aspx" />
+    <Content Include="Admin\viewAdmin.aspx" />
     <Content Include="App_Data\InventoryManagement.mdf" />
     <Content Include="App_Data\InventoryManagement_log.ldf">
       <DependentUpon>InventoryManagement.mdf</DependentUpon>
@@ -96,6 +98,20 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\Add_Admin.aspx.cs">
+      <DependentUpon>Add_Admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Add_Admin.aspx.designer.cs">
+      <DependentUpon>Add_Admin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\viewAdmin.aspx.cs">
+      <DependentUpon>viewAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\viewAdmin.aspx.designer.cs">
+      <DependentUpon>viewAdmin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Bill\newBill.aspx.cs">
       <DependentUpon>newBill.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
