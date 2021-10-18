@@ -80,7 +80,6 @@
     <Content Include="bootstrap\js\bootstrap_main_javascript.js" />
     <Content Include="Category\addCategory.aspx" />
     <Content Include="Category\viewCategory.aspx" />
-    <Content Include="Customer\addCustomer.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Home\home.aspx" />
     <Content Include="Home\logout.aspx" />
@@ -124,13 +123,6 @@
     </Compile>
     <Compile Include="Category\viewCategory.aspx.designer.cs">
       <DependentUpon>viewCategory.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Customer\addCustomer.aspx.cs">
-      <DependentUpon>addCustomer.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Customer\addCustomer.aspx.designer.cs">
-      <DependentUpon>addCustomer.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

@@ -23,27 +23,28 @@
     <!--#include file="~/static/Home/shared_navbar.html"-->
     <% if (ViewState["message"] != "")
         {
-            Response.Write("<div class='alert alert-"+ViewState["status"]+" alert-dismissible fade show' role='alert'><strong>" + ViewState["message"] + " </strong> <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>");
+            Response.Write("<div class='alert alert-" + ViewState["status"] + " alert-dismissible fade show' role='alert'><strong>" + ViewState["message"] + " </strong> <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>");
         }            %>
     <div class="container">
 
-    <form id="form1" class="" style="margin-top: 4%;" runat="server">
-        <h1>ADD CATEGORY</h1><hr style="border: 2px solid black" />
-        <div class="mb-3">
-            <label for="productName" class="form-label">
-                    <b>Category Name:</b>        
-            </label>
-            &nbsp;<asp:TextBox ID="TextBoxcategoryName" type="text" class="form-control" aria-describedby="emailHelp" runat="server"></asp:TextBox>
+        <form id="form1" class="" style="margin-top: 4%;" runat="server">
+            <h1>ADD CATEGORY</h1>
+            <hr style="border: 2px solid black" />
+            <div class="mb-3">
+                <label for="productName" class="form-label">
+                    <b>Category Name:</b>
+                </label>
+                &nbsp;<asp:TextBox ID="TextBoxcategoryName" type="text" class="form-control" aria-describedby="emailHelp" runat="server"></asp:TextBox>
 
-            <strong>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidatorCategoryName" runat="server" ControlToValidate="TextBoxcategoryName" CssClass="auto-style1" ErrorMessage="* Category name is required!!"></asp:RequiredFieldValidator>
-            </strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <strong>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidatorCategoryName" runat="server" ControlToValidate="TextBoxcategoryName" CssClass="auto-style1" ErrorMessage="* Category name is required!!"></asp:RequiredFieldValidator>
+                </strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-        </div>
-        
-        <asp:Button ID="addCategoryBtn" class="btn btn-success" runat="server" Text="Add Category" OnClick="addCategoryBtn_Click" />
+            </div>
 
-    </form>
+            <asp:Button ID="addCategoryBtn" class="btn btn-success" runat="server" Text="Add Category" OnClick="addCategoryBtn_Click" />
+
+        </form>
     </div>
 
     <!-- Optional JavaScript; choose one of the two! -->

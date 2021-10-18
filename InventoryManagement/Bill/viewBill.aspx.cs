@@ -23,7 +23,6 @@ namespace InventoryManagement.Bill
             {
                 BillItems = new List<BillDetails>();
             }
-            // public HttpResponse response { get; set; }
             public int BillId { get; set; }
             public string connectionString { get; set; }
             public List<BillDetails> BillItems { get; set; }
@@ -118,10 +117,6 @@ namespace InventoryManagement.Bill
                     connection.Close();
                 }
             }
-
-
-
-
         }
 
         protected int getBillId()

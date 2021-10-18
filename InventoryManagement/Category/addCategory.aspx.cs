@@ -54,7 +54,6 @@ namespace InventoryManagement.Category
                         // success
                         command = "INSERT INTO Category (CategoryName) VALUES ('" +
                        categoryName + "')";
-                        //Response.Write(command);
                         cmd = new SqlCommand(command, connection);
                         connection.Open();
                         int rows = cmd.ExecuteNonQuery();
@@ -85,7 +84,6 @@ namespace InventoryManagement.Category
                 Response.Write("Error:" + err.Message);
             }
             
-
         }
     }
 }

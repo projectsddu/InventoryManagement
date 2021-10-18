@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 <html lang="en">
-  <head>
+<head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,11 +12,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 
     <title>View Category</title>
-  </head>
-  <body>
-      <!--#include file="~/static/Home/shared_navbar.html"-->
+</head>
+<body>
+    <!--#include file="~/static/Home/shared_navbar.html"-->
 
-      <div class="container">
+    <div class="container">
         <table style="width: 50%; margin-left: 23%;" class="table table-hover mt-4 text-center" id="productTable">
             <thead>
                 <tr>
@@ -25,20 +25,20 @@
                 </tr>
             </thead>
             <tbody class="text-center">
-            <%
-                if (ViewState["categories"] != null)
-                {
-                    List<Category> categories = new List<Category>((List<Category>)ViewState["categories"]);
-                    for(int i = 0; i < categories.Count; i++)
+                <%
+                    if (ViewState["categories"] != null)
                     {
-                        Response.Write("<tr>" +
-                                 "<td scope='row'>" + categories[i].CategoryId + "</td>" +
-                                 "<td>" + categories[i].CategoryName+ "</td>" +
-                             "</tr>");
-                    }
+                        List<Category> categories = new List<Category>((List<Category>)ViewState["categories"]);
+                        for (int i = 0; i < categories.Count; i++)
+                        {
+                            Response.Write("<tr>" +
+                                     "<td scope='row'>" + categories[i].CategoryId + "</td>" +
+                                     "<td>" + categories[i].CategoryName + "</td>" +
+                                 "</tr>");
+                        }
 
-                } 
-            %>
+                    }
+                %>
             </tbody>
         </table>
     </div>
@@ -58,5 +58,5 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
     -->
-  </body>
+</body>
 </html>

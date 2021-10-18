@@ -108,7 +108,6 @@ namespace InventoryManagement.Bill
                             CategoryName = getCategoryName(Convert.ToInt32(rdr["CategoryFK"]))
                         };
                         products.Add(p);
-                        //Response.Write(p.ToString());
                     }
 
                     ViewState["products"] = products;
@@ -167,16 +166,12 @@ namespace InventoryManagement.Bill
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
         {
             int id = Convert.ToInt32(DropDownListItems.SelectedItem.Value);
-            // now fetch product details
-            //Response.Write(id);
             Product pdt = getPdtById(id);
             LabelProductName.Text = pdt.ProductName;
             LabelQuantity.Text = Convert.ToString(pdt.Quantity);
             LabelSellingPrice.Text = Convert.ToString(pdt.SellingPrice);
             TextBoxSellingPrice.Text = Convert.ToString(pdt.SellingPrice);
             TextBoxLabelQuantity.Text = Convert.ToString(pdt.Quantity);
-
-
         }
 
         protected void ButtonAddItem_Click(object sender, EventArgs e)
