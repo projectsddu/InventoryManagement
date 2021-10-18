@@ -90,7 +90,7 @@
                         <br />
                         <asp:TextBox ID="TextBoxCustomerName" runat="server" Width="250px" BorderColor="Black" BorderWidth="2px" Font-Bold="True" ForeColor="Black"></asp:TextBox>
                         <br />
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBoxCustomerName" ErrorMessage="Please enter the customer name!!" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBoxCustomerName" ErrorMessage="Enter the customer name!!" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
@@ -125,7 +125,7 @@
                         <asp:DropDownList ID="DropDownListItems" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource1" DataTextField="ProductName" DataValueField="ProductId" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" Font-Bold="True" BackColor="#CCCCCC" ForeColor="Black" Height="30px" Width="246px" CssClass="dropDownDesign">
                         </asp:DropDownList>
 
-                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:connectionStringJenil %>" SelectCommand="SELECT [ProductId], [ProductName], [Quantity], [BuyingPrice], [SellingPrice] FROM [Product]"></asp:SqlDataSource>
+                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:connectionStringKeval %>" SelectCommand="SELECT [ProductId], [ProductName], [Quantity], [BuyingPrice], [SellingPrice] FROM [Product]"></asp:SqlDataSource>
                     </td>
                 </tr>
 

@@ -31,33 +31,33 @@
             <div class="mb-3">
                 <label for="productName" class="form-label">
                     <b>Product Name: </b>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidatorName" runat="server" ErrorMessage=" *Product name is required!" BackColor="White" ControlToValidate="TextboxproductName" ForeColor="Red" Style="font-weight: 700"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidatorName" runat="server" ErrorMessage=" * Product Name is required!!" BackColor="White" ControlToValidate="TextboxproductName" ForeColor="Red" Style="font-weight: 700"></asp:RequiredFieldValidator>
                 </label>
                 &nbsp;<asp:TextBox ID="TextboxproductName" type="text" class="form-control" aria-describedby="emailHelp" runat="server"></asp:TextBox>
             </div>
 
             <div class="mb-3">
                 <label for="TextboxQuantity" class="form-label"><b>Quantity: </b></label>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidatorQuantity" runat="server" ErrorMessage=" *Quantity is required!!" BackColor="White" ControlToValidate="TextboxQuantity" ForeColor="Red" Style="font-weight: 700"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidatorQuantity" runat="server" ErrorMessage=" * Quantity is required!!" BackColor="White" ControlToValidate="TextboxQuantity" ForeColor="Red" Style="font-weight: 700"></asp:RequiredFieldValidator>
                 &nbsp;<asp:TextBox ID="TextboxQuantity" type="number" class="form-control" aria-describedby="emailHelp" runat="server"></asp:TextBox>
             </div>
             <div class="mb-3">
                 <label for="TextBoxBuyingPrice" class="form-label">
-                    <b>Buying Price:</b><asp:RequiredFieldValidator ID="buyingPriceValidator" runat="server" ControlToValidate="TextBoxBuyingPrice" ErrorMessage=" *Buying Price is required" ForeColor="Red" Style="font-weight: 700"></asp:RequiredFieldValidator>
+                    <b>Buying Price:</b><asp:RequiredFieldValidator ID="buyingPriceValidator" runat="server" ControlToValidate="TextBoxBuyingPrice" ErrorMessage=" * Buying Price is required!!" ForeColor="Red" Style="font-weight: 700"></asp:RequiredFieldValidator>
                 </label>
                 &nbsp;<asp:TextBox ID="TextBoxBuyingPrice" type="number" class="form-control" aria-describedby="emailHelp" runat="server"></asp:TextBox>
             </div>
             <div class="mb-3">
                 <label for="TextBoxBuyingPrice" class="form-label">
                     <b>Selling Price: </b>
-                    <asp:RequiredFieldValidator ID="sellingPriceValidator" runat="server" ControlToValidate="sellingPrice" ErrorMessage=" *Selling price validator" ForeColor="Red" Style="font-weight: 700"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="sellingPriceValidator" runat="server" ControlToValidate="sellingPrice" ErrorMessage=" * Selling Price is required!!" ForeColor="Red" Style="font-weight: 700"></asp:RequiredFieldValidator>
                 </label>
                 &nbsp;<asp:TextBox ID="sellingPrice" type="number" class="form-control" aria-describedby="emailHelp" runat="server"></asp:TextBox>
             </div>
             <div class="mb-3">
                 <label for="TextBoxBuyingPrice" class="form-label"><b>Select Category:</b></label><br />
                 <asp:DropDownList ID="categoryDropdown" class="btn btn-secondary dropdown-toggle" type="button" runat="server" DataSourceID="SqlDataSource1" DataTextField="CategoryName" DataValueField="CategoryName"></asp:DropDownList>
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:connectionStringJenil %>" SelectCommand="SELECT [CategoryName] FROM [Category]"></asp:SqlDataSource>
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:connectionStringKeval %>" SelectCommand="SELECT [CategoryName] FROM [Category]"></asp:SqlDataSource>
             </div>
             <div class="mb-3 mt-4">
                 <asp:Button ID="submitProduct" runat="server" Text="Add Product" class=" btn btn-success" OnClick="submitProduct_Click1" />

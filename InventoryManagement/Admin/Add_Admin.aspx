@@ -45,7 +45,7 @@
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="TextBoxNewAdminPassword" type="password" class="form-control" aria-describedby="emailHelp" runat="server"></asp:TextBox>
 
                 <strong>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidatorNewAdminPassword" runat="server" ControlToValidate="TextBoxNewAdminPassword" CssClass="auto-style1" ErrorMessage="* New Admin password is required!!" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidatorNewAdminPassword" runat="server" ControlToValidate="TextBoxNewAdminPassword" CssClass="auto-style1" ErrorMessage="* New Admin Password is required!!" ForeColor="Red"></asp:RequiredFieldValidator>
                 </strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
             </div>
@@ -56,7 +56,7 @@
                 &nbsp;<asp:TextBox ID="TextBoxCurrentAdminPassword" type="password" class="form-control" aria-describedby="emailHelp" runat="server"></asp:TextBox>
 
                 <strong>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidatorCurrentAdminPassword" runat="server" ControlToValidate="TextBoxCurrentAdminPassword" CssClass="auto-style1" ErrorMessage="* Current admin password is required !" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidatorCurrentAdminPassword" runat="server" ControlToValidate="TextBoxCurrentAdminPassword" CssClass="auto-style1" ErrorMessage="* Current Admin Password is required!!" ForeColor="Red"></asp:RequiredFieldValidator>
                 </strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
                 <br />

@@ -37,7 +37,7 @@
                 &nbsp;<asp:TextBox ID="TextBoxcategoryName" type="text" class="form-control" aria-describedby="emailHelp" runat="server"></asp:TextBox>
 
                 <strong>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidatorCategoryName" runat="server" ControlToValidate="TextBoxcategoryName" CssClass="auto-style1" ErrorMessage="* Category name is required!!"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidatorCategoryName" runat="server" ControlToValidate="TextBoxcategoryName" CssClass="auto-style1" ErrorMessage="* Category Name is required!!"></asp:RequiredFieldValidator>
                 </strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
             </div>

@@ -27,7 +27,7 @@
                     <b>Product Name: 
                 <asp:Label ID="LabelPdtName" runat="server" Style="font-style: italic; color: #009933"></asp:Label>
                         &nbsp; </b>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidatorName" runat="server" ErrorMessage=" *Product name is required!" BackColor="White" ControlToValidate="TextboxproductName" ForeColor="Red" Style="font-weight: 700"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidatorName" runat="server" ErrorMessage=" * Product Name is required!!" BackColor="White" ControlToValidate="TextboxproductName" ForeColor="Red" Style="font-weight: 700"></asp:RequiredFieldValidator>
                 </label>
                 &nbsp;<asp:TextBox ID="TextboxproductName" type="text" class="form-control" aria-describedby="emailHelp" runat="server"></asp:TextBox>
             </div>
@@ -38,14 +38,14 @@
                 <asp:Label ID="LabelCurQty" runat="server" Style="font-style: italic; color: #009933"></asp:Label>
                         &nbsp;&nbsp; </b>
                 </label>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidatorQuantity" runat="server" ErrorMessage=" *Quantity is required!!" BackColor="White" ControlToValidate="TextboxQuantity" ForeColor="Red" Style="font-weight: 700"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidatorQuantity" runat="server" ErrorMessage=" * Quantity is required!!" BackColor="White" ControlToValidate="TextboxQuantity" ForeColor="Red" Style="font-weight: 700"></asp:RequiredFieldValidator>
                 &nbsp;<asp:TextBox ID="TextboxQuantity" type="number" class="form-control" aria-describedby="emailHelp" runat="server"></asp:TextBox>
             </div>
             <div class="mb-3">
                 <label for="TextBoxBuyingPrice" class="form-label">
                     <b>Buying Price:
                 <asp:Label ID="LabelBuyPrice" runat="server" Style="font-style: italic; color: #009933"></asp:Label>
-                        &nbsp;</b><asp:RequiredFieldValidator ID="buyingPriceValidator" runat="server" ControlToValidate="TextBoxBuyingPrice" ErrorMessage=" *Buying Price is required" ForeColor="Red" Style="font-weight: 700"></asp:RequiredFieldValidator>
+                        &nbsp;</b><asp:RequiredFieldValidator ID="buyingPriceValidator" runat="server" ControlToValidate="TextBoxBuyingPrice" ErrorMessage=" * Buying Price is required!!" ForeColor="Red" Style="font-weight: 700"></asp:RequiredFieldValidator>
                 </label>
                 &nbsp;<asp:TextBox ID="TextBoxBuyingPrice" type="number" class="form-control" aria-describedby="emailHelp" runat="server"></asp:TextBox>
             </div>
@@ -54,7 +54,7 @@
                     <b>Selling Price: 
                 <asp:Label ID="LabelCurrentSellPrice" runat="server" Style="font-style: italic; color: #009900"></asp:Label>
                         &nbsp; </b>
-                    <asp:RequiredFieldValidator ID="sellingPriceValidator" runat="server" ControlToValidate="sellingPrice" ErrorMessage=" *Selling price validator" ForeColor="Red" Style="font-weight: 700"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="sellingPriceValidator" runat="server" ControlToValidate="sellingPrice" ErrorMessage=" * Selling Price is required!!" ForeColor="Red" Style="font-weight: 700"></asp:RequiredFieldValidator>
                 </label>
                 &nbsp;<asp:TextBox ID="sellingPrice" type="number" class="form-control" aria-describedby="emailHelp" runat="server"></asp:TextBox>
             </div>

@@ -78,7 +78,7 @@ namespace InventoryManagement.Product
                 using(connection)
                 {
                     connection.Open();
-                    string command = "SELECT * FROM Product ORDER BY CategoryFK";
+                    string command = "SELECT * FROM Product ORDER BY ProductId DESC";
                     SqlCommand cmd = new SqlCommand(command, connection);
                     SqlDataReader rdr = cmd.ExecuteReader();
                     List<Product> products = new List<Product>();
