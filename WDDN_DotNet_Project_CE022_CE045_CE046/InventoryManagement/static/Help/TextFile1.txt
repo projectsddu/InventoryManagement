@@ -1,0 +1,63 @@
+﻿<Target Name="CopyRoslynFiles" AfterTargets="AfterBuild" Condition="!$(Disable_CopyWebApplication) And '$(OutDir)' != '$(OutputPath)'">
+    <ItemGroup>
+      <RoslynFiles Include="$(CscToolPath)\*" />
+    </ItemGroup>
+    <MakeDir Directories="$(WebProjectOutputDir)\bin\roslyn" />
+    <Copy SourceFiles="@(RoslynFiles)" DestinationFolder="$(WebProjectOutputDir)\bin\roslyn" SkipUnchangedFiles="true" Retries="$(CopyRetryCount)" RetryDelayMilliseconds="$(CopyRetryDelayMilliseconds)" />
+</Target>
+
+Add this to project to use roslyn
+
+
+CREATE TABLE [dbo].[AdminUser] (
+    [UserId]       INT          IDENTITY (1, 1) NOT NULL,
+    [Username]     VARCHAR (50) NOT NULL,
+    [Password]     VARCHAR (50) NOT NULL,
+    [EmailAddress] VARCHAR (50) NOT NULL,
+    PRIMARY KEY CLUSTERED ([UserId] ASC)
+);
+
+CREATE TABLE [dbo].[Bill] (
+    [BillId]          INT           IDENTITY (1, 1) NOT NULL,
+    [BillDate]        VARCHAR (100) NOT NULL,
+    [TotalCost]       FLOAT (53)    NULL,
+    [CustomerName]    VARCHAR (50)  NOT NULL,
+    [CustomerPhoneNo] NCHAR (20)    NULL,
+    PRIMARY KEY CLUSTERED ([BillId] ASC)
+);
+
+CREATE TABLE [dbo].[BillDetails] (
+    [BillDetailsId] INT        IDENTITY (1, 1) NOT NULL,
+    [ProductId]     INT        NOT NULL,
+    [Quantity]      INT        NOT NULL,
+    [SellingPrice]  FLOAT (53) NOT NULL,
+    [BillId]        INT        NOT NULL,
+    PRIMARY KEY CLUSTERED ([BillDetailsId] ASC)
+);
+
+CREATE TABLE [dbo].[Category] (
+    [CategoryId]   INT          IDENTITY (1, 1) NOT NULL,
+    [CategoryName] VARCHAR (50) NOT NULL,
+    PRIMARY KEY CLUSTERED ([CategoryId] ASC)
+);
+
+CREATE TABLE [dbo].[Customer] (
+    [CustomerId]      INT             IDENTITY (1, 1) NOT NULL,
+    [CustomerName]    VARCHAR (50)    NULL,
+    [CustomerPhoneNo] VARCHAR (20)    NULL,
+    [CustomerAddress] VARBINARY (500) NULL,
+    [CustomerEmail]   VARCHAR (50)    NULL,
+    PRIMARY KEY CLUSTERED ([CustomerId] ASC)
+);
+
+
+CREATE TABLE [dbo].[Product] (
+    [ProductId]    INT          IDENTITY (1, 1) NOT NULL,
+    [ProductName]  VARCHAR (50) NOT NULL,
+    [Quantity]     INT          NOT NULL,
+    [BuyingPrice]  INT          NOT NULL,
+    [SellingPrice] INT          NOT NULL,
+    [CategoryFK]   INT          NOT NULL,
+    PRIMARY KEY CLUSTERED ([ProductId] ASC),
+    CONSTRAINT [CategoryFK] FOREIGN KEY ([CategoryFK]) REFERENCES [dbo].[Category] ([CategoryId])
+);
